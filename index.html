@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="main.js"></script>
+    <title>Calculadora</title>
+</head>
+<body>
+    <hr/>
+        <h3 align="center" id="vista">Sin resultado...</h3><br>
+    <hr/>
+    <div>
+        <table border="1" align="center">
+            <tr>
+                <td>
+                    <button onclick="mostrarValor(7)"> 7 </button>
+                </td>
+                <td>
+                    <button onclick="mostrarValor(8)">8</button>
+                </td>
+                <td>
+                    <button onclick="mostrarValor(9)">9</button>
+                </td>
+                <td rowspan="3">
+                    <button onclick="calcular()">=</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="mostrarValor(4)">4</button>
+                </td>
+                <td>
+                    <button onclick="mostrarValor(5)">5</button> 
+                </td>
+                <td>
+                    <button onclick="mostrarValor(6)">6</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="mostrarValor(1)">1</button>
+                </td>
+                <td>
+                    <button onclick="mostrarValor(2)">2</button> 
+                </td>
+                <td>
+                    <button onclick="mostrarValor(3)">3</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="operacion(-1)">+</button>
+                </td>
+                <td>
+                    <button onclick="operacion(-2)">-</button> 
+                </td>
+                <td>
+                    <button onclick="operacion(-3)">x</button>
+                </td>
+                <td>
+                    <button onclick="operacion(-4)">/</button>
+                </td>
+            </tr>
+        </table>    
+    </div>
+    <p>Historial:</p>
+    <textarea rows="15" cols="160" id="historial" align="center"></textarea>
+</body>
+</html>
