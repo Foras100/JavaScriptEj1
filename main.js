@@ -3,41 +3,37 @@ var n1=null
 var n2=null
 var texto=""
 var tipoOperacion = ""
+
 function mostrarValor(n){
+    
+    texto+=n
     document.getElementById("vista").innerHTML=texto
-    if(n1==null)
-    {
-        n1=n
-        texto+=n1
-        document.getElementById("vista").innerHTML=texto
-    }
-    else if(n2==null){
-        n2=n
-        texto+=n2
-        document.getElementById("vista").innerHTML=texto
-    }
 }
 
 
 function operacion(op){
-    if(n1!=null && tipoOperacion=="")
+    if(texto!="" && tipoOperacion=="")
     switch(op){
         case -1:
+            n1=Number(texto)
             texto+="+"
             tipoOperacion="+"
             document.getElementById("vista").innerHTML=texto
         break
         case -2:
+            n1=Number(texto)
             texto+="-"
             tipoOperacion="-"
             document.getElementById("vista").innerHTML=texto
         break
         case -3:
+            n1=Number(texto)
             texto+="*"
             tipoOperacion="*"
             document.getElementById("vista").innerHTML=texto
         break
         case -4:
+            n1=Number(texto)
             texto+="/"
             tipoOperacion="/"
             document.getElementById("vista").innerHTML=texto
@@ -47,26 +43,45 @@ function operacion(op){
 
 
 function calcular(){
-    if(n2!=null){
+    if(n1!=null && tipoOperacion!=""){
+        let renglon;
         switch(tipoOperacion){
             case "+":
-            document.getElementById("vista").innerHTML=n1+n2
+                renglon=texto.split("+")
+                n2=Number(renglon[1])
+                document.getElementById("vista").innerHTML=(texto=texto+"="+n1+n2)
             break
             case "-":
-            document.getElementById("vista").innerHTML=n1-n2
+                renglon=texto.split("-")
+                n2=Number(renglon[1])
+                document.getElementById("vista").innerHTML=(texto=texto+"="+n1-n2)
             break
             case "/":
-                document.getElementById("vista").innerHTML=n1/n2
+                renglon=texto.split("/")
+                n2=Number(renglon[1])
+                document.getElementById("vista").innerHTML=(texto=texto+"="+n1/n2)
             break
             case "*":
-            document.getElementById("vista").innerHTML=n1*n2
+                renglon=texto.split("*")
+                n2=Number(renglon[1])
+                document.getElementById("vista").innerHTML=(texto=texto+"="+n1*n2)
             break
         }
     }
-    document.getElementById("historial").innerHTML="Hola /n como estas"
+    agregarHistorial(texto)
     texto=""
     n1=null
     n2=null
     tipoOperacion=""
+
+    function agregarHistorial(t){   
+
+        let unNodo = document.createElement("li")
+        unNodo.classList.add("list-group-item")
+        let unNodoTexto = document.createTextNode(t)
+        unNodo.appendChild(unNodoTexto)
+        listaHistorial.appendChild(unNodo)
     
+    
+}
 }
